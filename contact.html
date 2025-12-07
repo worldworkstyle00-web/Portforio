@@ -2,104 +2,74 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <title>ポートフォリオ | お問い合わせ</title>
+  <title>お問い合わせ | ポートフォリオ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="お問い合わせフォームと連絡先を掲載したページです。" />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <meta name="description" content="お問い合わせフォーム。SendGrid 経由でメール送信ができます。" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="page-wrap">
-    <header>
-      <nav class="nav">
-        <div class="nav-left">
-          <div class="brand-circle">
-           <span>TW</span>
-          </div>
-          <div class="brand-text">
-           <div class="brand-text-title">IT運用 × Web制作</div>
-           <div class="brand-text-sub">実効性重視の在宅ワーカー</div>
-          </div>
-        </div>
-        <button class="nav-toggle" aria-label="メニューを開く">
-          <span></span><span></span><span></span>
-        </button>
-        <div class="nav-links">
-          <a href="index.html" class="nav-link">概要</a>
-          <a href="workstyle.html" class="nav-link active">仕事観</a>
-          <a href="strengths.html" class="nav-link">強み</a>
-          <a href="skills.html" class="nav-link">スキル</a>
-          <a href="stories.html" class="nav-link">改善事例</a>
-          <a href="services.html" class="nav-link">提供できる業務</a>
-          <a href="workflow.html" class="nav-link">仕事の進め方</a>
-          <a href="vision.html" class="nav-link">今後について</a>
-          <a href="contact.html" class="nav-link">お問い合わせ</a>        </div>
-      </nav>
+<div class="page-wrap">
 
-    </header>
-
-    <main>
-      <section class="section">
-        <div class="section-heading">
-          <span class="section-heading-pill">📮</span>
-          <span>お問い合わせ</span>
-        </div>
-        <p class="section-subtitle">
-          お仕事のご相談・ご質問などありましたら、以下のフォームまたはメールにてお気軽にご連絡ください。
-        </p>
-
-        <div class="vision-wrap">
-          <div class="vision-main">
-            <form class="contact-form">
-              <div class="form-field">
-                <label for="name">お名前</label>
-                <input type="text" id="name" name="name" placeholder="例）山田 太郎" />
-              </div>
-              <div class="form-field">
-                <label for="email">メールアドレス</label>
-                <input type="email" id="email" name="email" placeholder="example@example.com" />
-              </div>
-              <div class="form-field">
-                <label for="message">お問い合わせ内容</label>
-                <textarea id="message" name="message" rows="5" placeholder="ご相談内容・ご質問などをご記入ください。"></textarea>
-              </div>
-              <button type="button" class="form-submit">
-                送信（デモ）
-              </button>
-              <p class="contact-note">
-                ※ 現時点ではデモ用フォームのため、送信内容はサーバーには保存されません。<br />
-                実運用時は、バックエンドや外部フォームサービスと連携する形に変更可能です。
-              </p>
-            </form>
-          </div>
-
-          <aside class="contact-card">
-            <div class="card-title">メールでのご連絡</div>
-            <p class="contact-note">
-              フォーム以外に、直接メールでご連絡いただくことも可能です。
-            </p>
-            <div class="contact-item">
-              <span class="contact-label">メールアドレス</span>
-              <span class="contact-value"><a href="mailto:contact@example.com">contact@example.com</a></span>
-            </div>
-            <div class="contact-item">
-              <span class="contact-label">対応可能な時間帯</span>
-              <span class="contact-value">平日：10:00〜18:00（目安）</span>
-            </div>
-          </aside>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div class="footer-inner">
-        <div>© 2025 Tamae Shinohe – IT運用 × Web制作 × 在宅ワーク</div>
+<header>
+  <nav class="nav">
+    <div class="nav-left">
+      <div class="brand-circle"><span>TW</span></div>
+      <div class="brand-text">
+        <div class="brand-text-title">IT運用 × Web制作</div>
+        <div class="brand-text-sub">実効性重視の在宅ワーカー</div>
       </div>
-    </footer>
+    </div>
+    <button class="nav-toggle"><span></span><span></span><span></span></button>
 
-    <button class="back-to-top" aria-label="ページの先頭へ戻る">↑</button>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">概要</a>
+      <a href="workstyle.html" class="nav-link">仕事観</a>
+      <a href="strengths.html" class="nav-link">強み</a>
+      <a href="skills.html" class="nav-link">スキル</a>
+      <a href="stories.html" class="nav-link">改善事例</a>
+      <a href="services.html" class="nav-link">提供できる業務</a>
+      <a href="workflow.html" class="nav-link">仕事の進め方</a>
+      <a href="vision.html" class="nav-link">今後について</a>
+      <a href="contact.html" class="nav-link active">お問い合わせ</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+<section class="section">
+  <div class="section-heading">
+    <span class="section-heading-pill">📮</span>
+    <span>お問い合わせ</span>
   </div>
+  <p class="section-subtitle">
+    ご質問・ご相談・お仕事のご依頼はこちらからお気軽にご連絡ください。
+  </p>
 
-  <script src="script.js"></script>
+  <form id="contact-form" class="contact-form">
+    <label class="form-label">お名前</label>
+    <input type="text" name="name" class="form-input" required />
+
+    <label class="form-label">メールアドレス</label>
+    <input type="email" name="email" class="form-input" required />
+
+    <label class="form-label">お問い合わせ内容</label>
+    <textarea name="message" class="form-textarea" required></textarea>
+
+    <button type="submit" class="form-submit">送信する</button>
+
+    <p id="form-status" class="form-status"></p>
+  </form>
+</section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    © 2025 Tamae Shinohe – IT運用 × Web制作 × 在宅ワーク
+  </div>
+</footer>
+
+<button class="back-to-top">↑</button>
+<script src="script.js"></script>
+</div>
 </body>
 </html>

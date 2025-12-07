@@ -1,0 +1,23 @@
+name: Send Contact Form Mail
+
+on:
+  repository_dispatch:
+    types: [sendmail]
+
+jobs:
+  send_mail:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send mail via SendGrid
+        uses: peter-evans/sendgrid-action@v2
+        with:
+          api_key: ${{ secrets.SENDGRID_API_KEY }}
+          from: "worldworkstyle00@gmail.com"
+          to: "worldworkstyle00@gmail.com"
+          subject: "【ポートフォリオお問い合わせ】${{ github.event.client_payload.name }}様より"
+          body: |
+            お名前：${{ github.event.client_payload.name }}
+            メール：${{ github.event.client_payload.email }}
+            内容：
+            ${{ github.event.client_payload.message }}
