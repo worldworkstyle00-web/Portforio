@@ -4,16 +4,19 @@
   <meta charset="UTF-8" />
   <title>ポートフォリオ | 今後について</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="今後の方向性や取り組みたい内容をまとめたページです。" />
+  <meta name="description" content="今後の方向性や、在宅ワークを通じて実現したいことを整理したページです。" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="page-wrap">
     <header>
+      <!-- 共通ナビ：今後についてだけ active -->
       <nav class="nav">
         <div class="nav-left">
-          <div class="brand-circle"><span>TW</span></div>
+          <div class="brand-circle">
+            <span>TW</span>
+          </div>
           <div class="brand-text">
             <div class="brand-text-title">IT運用 × Web制作</div>
             <div class="brand-text-sub">実効性重視の在宅ワーカー</div>
@@ -24,14 +27,14 @@
         </button>
         <div class="nav-links">
           <a href="index.html" class="nav-link">概要</a>
-          <a href="workstyle.html" class="nav-link">仕事観</a>
+          <a href="workstyle.html" class="nav-link active">仕事観</a>
+          <a href="strengths.html" class="nav-link">強み</a>
           <a href="skills.html" class="nav-link">スキル</a>
+          <a href="stories.html" class="nav-link">改善事例</a>
           <a href="services.html" class="nav-link">提供できる業務</a>
           <a href="workflow.html" class="nav-link">仕事の進め方</a>
-          <a href="stories.html" class="nav-link">改善事例</a>
-          <a href="vision.html" class="nav-link active">今後について</a>
-          <a href="contact.html" class="nav-link">お問い合わせ</a>
-        </div>
+          <a href="vision.html" class="nav-link">今後について</a>
+          <a href="contact.html" class="nav-link">お問い合わせ</a>        </div>
       </nav>
     </header>
 
@@ -42,46 +45,35 @@
           <span>今後について</span>
         </div>
         <p class="section-subtitle">
-          在宅ワーク・オンライン業務に軸足を移しながら、これまでの経験をどう活かしていくか。
+          在宅での働き方を前提にしつつ、IT運用とWeb制作の両方の知見を活かして、クライアントの課題解決に貢献していきたいと考えています。
         </p>
 
         <div class="vision-wrap">
           <div class="vision-main">
             <p class="vision-text">
-              これまでのIT運用経験で培ってきたものは、<br />
-              <strong>正確性・実効性・背景理解・仕組み化・ユーザー視点</strong> といった、どの分野でも通用する土台です。
+              <strong>短期的には</strong>、在宅で完結する案件を着実に積み重ね、実績と信頼を形にしていくことを目標としています。
             </p>
             <p class="vision-text">
-              今後はそれらを、在宅でも完結する次のような仕事に活かしていきたいと考えています。
+              <strong>中期的には</strong>、Web制作だけでなく、IT運用やドキュメント整備の視点も含めて、「現場が動きやすくなる仕組みづくり」を提案できる立場を目指します。
             </p>
-            <ul class="vision-list">
-              <li>シンプルなWebサイト・ポートフォリオサイトの制作・更新</li>
-              <li>Webアプリ（ToDoアプリなど）の作成を通じた業務効率化の提案</li>
-              <li>手順書・マニュアル・技術ドキュメントの作成・整備</li>
-              <li>ITまわりの「わからない」を減らすオンラインサポート</li>
-              <li>EC・Webサービス運営の裏側を支える情報整理・文書作成</li>
-            </ul>
             <p class="vision-text">
-              どの仕事でも変わらない軸は、<br />
-              「現場が迷わずに動けるか」「無駄とリスクが減っているか」。<br />
-              その視点から、Web制作・在宅ワークの現場に貢献していきます。
+              <strong>長期的には</strong>、クライアントにとって「いないと困る存在」になれることを目標にしています。<br />
+              単発の依頼で終わるのではなく、状況の変化に合わせて一緒に考え続けられるパートナーとして関わっていきたいと考えています。
             </p>
           </div>
 
-          <aside class="contact-card">
-            <div class="card-title">ご興味がある方へ</div>
+          <div class="contact-card">
+            <div class="card-title">ご相談について</div>
             <p class="contact-note">
-              プロジェクトのご相談、お仕事の打診、その他お問い合わせについては、<br />
-              お問い合わせページからお気軽にご連絡ください。
+              「まずは小さな範囲から相談してみたい」「在宅でこういうことをお願いできるか知りたい」など、検討段階でのご相談も歓迎しています。
             </p>
-            <div class="contact-item">
-              <span class="contact-label">メール</span>
-              <span class="contact-value"><a href="mailto:contact@example.com">contact@example.com</a></span>
-            </div>
+            <p class="contact-note">
+              具体的な案件が決まっていない段階でも、現状やお困りごとを伺いながら、一緒に整理していくところからお手伝いできます。
+            </p>
             <a href="contact.html" class="contact-badge">
               📮 お問い合わせページへ
             </a>
-          </aside>
+          </div>
         </div>
       </section>
     </main>
@@ -95,6 +87,6 @@
     <button class="back-to-top" aria-label="ページの先頭へ戻る">↑</button>
   </div>
 
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -4,16 +4,19 @@
   <meta charset="UTF-8" />
   <title>ポートフォリオ | 改善事例</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="IT運用・Web制作における改善事例をまとめたページです。" />
+  <meta name="description" content="IT運用やWeb制作、ドキュメント整備など、これまで取り組んできた改善の一部事例を紹介します。" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="page-wrap">
     <header>
+      <!-- 共通ナビ：改善事例だけ active -->
       <nav class="nav">
         <div class="nav-left">
-          <div class="brand-circle"><span>TW</span></div>
+          <div class="brand-circle">
+            <span>TW</span>
+          </div>
           <div class="brand-text">
             <div class="brand-text-title">IT運用 × Web制作</div>
             <div class="brand-text-sub">実効性重視の在宅ワーカー</div>
@@ -24,14 +27,14 @@
         </button>
         <div class="nav-links">
           <a href="index.html" class="nav-link">概要</a>
-          <a href="workstyle.html" class="nav-link">仕事観</a>
+          <a href="workstyle.html" class="nav-link active">仕事観</a>
+          <a href="strengths.html" class="nav-link">強み</a>
           <a href="skills.html" class="nav-link">スキル</a>
+          <a href="stories.html" class="nav-link">改善事例</a>
           <a href="services.html" class="nav-link">提供できる業務</a>
           <a href="workflow.html" class="nav-link">仕事の進め方</a>
-          <a href="stories.html" class="nav-link active">改善事例</a>
           <a href="vision.html" class="nav-link">今後について</a>
-          <a href="contact.html" class="nav-link">お問い合わせ</a>
-        </div>
+          <a href="contact.html" class="nav-link">お問い合わせ</a>        </div>
       </nav>
     </header>
 
@@ -42,53 +45,46 @@
           <span>改善事例</span>
         </div>
         <p class="section-subtitle">
-          「何をどう変えたか」が分かるように、印象的な事例を抜粋しています。
+          実務の中で取り組んできた改善の一部を、概要ベースで紹介します。<br />
+          詳細は守秘義務の都合もあるため、公開可能な範囲で整理しています。
         </p>
 
         <div class="story-list">
-          <div class="story-card">
-            <div class="story-label">Story 01</div>
-            <div class="story-title">Windows11移行を“再リプレースゼロ”で実現</div>
+          <article class="story-card">
+            <div class="story-label">IT運用改善</div>
+            <div class="story-title">OS移行に伴う運用フロー整備</div>
             <p class="story-text">
-              当初は一部機種の再リプレースが必要と想定されていたWindows11移行プロジェクトにおいて、<br />
-              各機種のスペック・システム領域を詳細に調査し、設定の見直しと配信方法の最適化を実施。<br />
-              その結果、廃棄予定機を除く全機種を再リプレースなしで自動アップデート可能にし、<br />
-              工数とコストの大幅な削減に成功しました。
+              社内PCのOS移行にあわせて、キッティング・配布・入替え・回収といった一連の流れを整理しました。<br />
+              単なる手順書ではなく、誰が・どのタイミングで・何をするかを可視化し、担当者ごとに迷いが出ないようにフロー化しました。
             </p>
-          </div>
+          </article>
 
-          <div class="story-card">
-            <div class="story-label">Story 02</div>
-            <div class="story-title">個人情報削除の「自動化」で人為的ミスをゼロへ</div>
+          <article class="story-card">
+            <div class="story-label">Web制作</div>
+            <div class="story-title">シンプルなToDoアプリとポートフォリオサイト</div>
             <p class="story-text">
-              社内サーバーに取り込まれた個人情報の削除忘れを防ぐため、<br />
-              専用フォルダのアクセス権を限定したうえで、定時に自動削除を行うツールを作成・実装。<br />
-              個人情報取り扱いにおける「うっかり」を仕組みで防ぎ、<br />
-              日々の運用負荷を増やさずにリスクを減らすことができました。
+              HTML / CSS / JavaScript を用いたToDoアプリや、ポートフォリオサイトを作成。<br />
+              小さな機能でも、使う人のイメージがしやすいUIや、コードの読みやすさを意識して実装しました。
             </p>
-          </div>
+          </article>
 
-          <div class="story-card">
-            <div class="story-label">Story 03</div>
-            <div class="story-title">配信システム刷新時の運用再設計</div>
+          <article class="story-card">
+            <div class="story-label">業務効率化</div>
+            <div class="story-title">配布・管理プロセスの見直し</div>
             <p class="story-text">
-              AssetView から SkySeaClientView への移行に伴い、<br />
-              アプリインストールやプリンター追加、アンケート配信など、<br />
-              それまで使われていた自動配信ツールを一つひとつ見直し・再実装。<br />
-              現場の使い方をヒアリングしながら、自動反映や余剰機削減にもつながる形で再構築しました。
+              ソフトウェアや機器の配布プロセスを見直し、手作業の重複や確認漏れを減らすための整理を実施しました。<br />
+              「誰が見ても同じ判断ができる」ことを意識したルールとドキュメントにより、担当者間のバラつきを抑えることにつながりました。
             </p>
-          </div>
+          </article>
 
-          <div class="story-card">
-            <div class="story-label">Story 04</div>
-            <div class="story-title">「わかる手順書」で新人・初心者の迷いを軽減</div>
+          <article class="story-card">
+            <div class="story-label">ドキュメント整備</div>
+            <div class="story-title">IT資産管理ガイドラインの作成</div>
             <p class="story-text">
-              新卒やIT初心者にもわかりづらいと感じられていた操作や申請について、<br />
-              「これは何か」「なぜ必要か」という背景から説明する手順書を新たに作成。<br />
-              図解や例を交えながら、作業手順だけでなく仕組みそのものが理解できる内容を心がけました。<br />
-              その結果、問い合わせの質が変わり、現場の理解度向上にもつながりました。
+              IT資産管理に関するルールや運用手順を、現場の担当者向けに整理し直しました。<br />
+              目的・背景・具体的な作業手順をセットで示すことで、新しく担当するメンバーでもスムーズに対応できるようになりました。
             </p>
-          </div>
+          </article>
         </div>
       </section>
     </main>
