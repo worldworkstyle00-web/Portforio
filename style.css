@@ -636,3 +636,38 @@ footer {
     padding-inline: 1rem;
   }
 }
+
+/* ================================================
+   文章主体ページ用コンポーネント（text-section）
+   ================================================ */
+
+.text-block {
+  background: rgba(255, 240, 248, 0.55);  /* 柔らかいピンクの背景 */
+  border: 1px solid rgba(255, 182, 212, 0.45);
+  border-radius: 1rem;
+  padding: 1.4rem 1.6rem;
+  margin-bottom: 1.6rem;
+  box-shadow: 0 6px 14px rgba(255, 182, 212, 0.15);
+}
+
+.text-block h3 {
+  display: flex;
+  align-items: center;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  color: var(--color-text-main);
+}
+
+.text-block h3::before {
+  content: "✦";
+  font-size: 0.9rem;
+  color: var(--color-accent);
+  margin-right: 0.45rem;
+}
+
+.text-block p {
+  line-height: 1.9;
+  font-size: 0.92rem;
+  color: var(--color-text-sub);
+}
