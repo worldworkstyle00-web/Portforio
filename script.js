@@ -33,40 +33,27 @@ const formStatus = document.getElementById("form-status");
 
 if (contactForm) {
   contactForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    formStatus.textContent = "送信中です…";
-    formStatus.style.color = "#666";
-
-    const formData = {
-      name: contactForm.name.value,
-      email: contactForm.email.value,
-      message: contactForm.message.value,
-    };
-
-    const response = await fetch(
-      "https://api.github.com/repos/worldworkstyle00-web/Portfolio/dispatches",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/vnd.github.everest-preview+json",
-          Authorization: `Bearer ${GITHUB_TOKEN}`, // ※実際には後で Secrets 参照に変える
-        },
-        body: JSON.stringify({
-          event_type: "sendmail",
-          client_payload: formData,
-        }),
-      }
-    );
-
-    if (response.ok) {
-      formStatus.textContent = "送信が完了しました。追ってご連絡いたします。";
-      formStatus.style.color = "#28a745";
-      contactForm.reset();
-    } else {
-      formStatus.textContent = "送信に失敗しました。しばらくしてから再度お試しください。";
-      formStatus.style.color = "#d33";
+    // e.preventDefault(); // Formspree の自動送信を使用するため、ここでは preventDefault しない
+    
+    const submitBtn = contactForm.querySelector("button[type='submit']");
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "送信中です...";
     }
+
+    // フォーム送信後のステータス表示
+    setTimeout(() => {
+      formStatus.textContent = "送信ありがとうございます。確認後、ご返信させていただきます。";
+      formStatus.style.color = "#28a745";
+      formStatus.style.display = "block";
+    }, 1000);
   });
+
+  // Formspree からのリダイレクト時（オプション）
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get("success") === "true") {
+    formStatus.textContent = "送信が完了しました。確認後、ご返信させていただきます。";
+    formStatus.style.color = "#28a745";
+    formStatus.style.display = "block";
+  }
 }

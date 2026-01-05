@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>Case Study｜HubSpot連携・自動通知システム開発</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="HubSpot連携・自動通知システム開発の進行中プロジェクト。営業活動の効率化を目指した自動化システムの構築事例です。" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+<div class="page-wrap">
+
+<header>
+  <nav class="nav">
+    <div class="nav-left">
+      <div class="brand-circle"><span>TW</span></div>
+      <div class="brand-text">
+        <div class="brand-text-title">IT運用 × Web制作</div>
+        <div class="brand-text-sub">実効性重視の在宅ワーカー</div>
+      </div>
+    </div>
+    <button class="nav-toggle"><span></span><span></span><span></span></button>
+
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">概要</a>
+      <a href="workstyle.html" class="nav-link">仕事観</a>
+      <a href="strengths.html" class="nav-link">強み</a>
+      <a href="skills.html" class="nav-link">スキル</a>
+      <a href="stories.html" class="nav-link">改善事例</a>
+      <a href="services.html" class="nav-link">提供できる業務</a>
+      <a href="workflow.html" class="nav-link">仕事の進め方</a>
+      <a href="vision.html" class="nav-link">今後について</a>
+      <a href="contact.html" class="nav-link">お問い合わせ</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+<section class="section">
+
+  <div class="section-heading">
+    <span class="section-heading-pill">🔄</span>
+    <span>Case Study｜HubSpot連携・自動通知システム開発</span>
+  </div>
+
+  <p class="section-subtitle">
+    営業プロセスの自動化を目指し、HubSpot と他システムを連携させて、営業チームの業務効率を大幅に改善するプロジェクトです。
+  </p>
+
+  <div class="project-status">
+    <span class="status-badge status-in-progress">進行中</span>
+  </div>
+
+  <!-- 1. 背景 -->
+  <div class="text-block">
+    <h3>1. 背景（Why）</h3>
+    <p>
+      営業チームが顧客情報の管理・営業活動の記録・その他システムとの連携に多くの手作業時間を費やしていました。<br />
+      特に、異なるシステム間でのデータ同期が手動になっていたため、情報の更新漏れやタイムラグが生じていました。<br />
+      <strong>営業チームが営業活動に集中できる環境を整えることが課題</strong>でした。
+    </p>
+  </div>
+
+  <!-- 2. 目的 -->
+  <div class="text-block">
+    <h3>2. 目的（Goal）</h3>
+    <p>
+      ・HubSpot をデータハブとして、複数システムとの自動連携を実現<br />
+      ・営業活動の進捗状況を自動追跡し、チーム内で自動通知するシステムの構築<br />
+      ・データ入力作業の削減と、情報の鮮度維持<br />
+      ・営業チームが営業活動に集中できる環境を実現
+    </p>
+  </div>
+
+  <!-- 3. 取り組み -->
+  <div class="text-block">
+    <h3>3. 取り組み（Process）</h3>
+    <p>
+      以下のポイントで自動化システムの構築に取り組んでいます。
+    </p>
+
+    <h4 style="margin-top:1.1rem; font-weight:600;">■ HubSpot API 連携</h4>
+    <p>
+      ・HubSpot のパイプライン・コンタクト・ディール情報の取得<br />
+      ・他システムからのデータ入力・更新の自動化<br />
+      ・API 認証・レート制限への対応<br />
+    </p>
+
+    <h4 style="margin-top:1rem; font-weight:600;">■ 自動通知システム</h4>
+    <p>
+      ・営業段階の更新に基づく自動メール通知<br />
+      ・チャットツール（Slack など）への連携通知<br />
+      ・例外検知と管理者への警告機能<br />
+    </p>
+
+    <h4 style="margin-top:1rem; font-weight:600;">■ データ連携パイプライン</h4>
+    <p>
+      ・既存社内システムとの双方向データ同期<br />
+      ・定期的な同期スケジュール管理<br />
+      ・データ品質の監視とエラーハンドリング<br />
+    </p>
+
+    <h4 style="margin-top:1rem; font-weight:600;">■ 実装技術</h4>
+    <p>
+      ・バックエンド：Python / Node.js（API処理）<br />
+      ・スケジューリング：cron / Zapier / Make<br />
+      ・モニタリング：ログシステム・アラート機構
+    </p>
+  </div>
+
+  <!-- 4. 期待される効果 -->
+  <div class="text-block">
+    <h3>4. 期待される効果（Expected Outcome）</h3>
+    <p>
+      ✅ 営業チームの手作業時間の削減（週 5 時間以上）<br />
+      ✅ 顧客情報の更新漏れ削減<br />
+      ✅ リアルタイムな営業進捗把握<br />
+      ✅ 営業チーム全体の生産性向上
+    </p>
+  </div>
+
+  <!-- 5. 現在の進捗 -->
+  <div class="text-block">
+    <h3>5. 現在の進捗状況</h3>
+    <p>
+      <strong>フェーズ 1（基本連携）:</strong> HubSpot API の導入・基本的なデータ取得の実装完了<br />
+      <strong>フェーズ 2（自動通知機能）:</strong> メール通知・Slack 連携の開発中<br />
+      <strong>フェーズ 3（本番環境）:</strong> パイロット運用予定
+    </p>
+  </div>
+
+  <div style="margin-top:2rem; padding:1.2rem; background:#f0f8ff; border-radius:1rem; border-left:4px solid #ff76a5;">
+    <p style="margin:0; font-size:0.9rem; color:#666;">
+      <strong>ご注意:</strong> このプロジェクトは進行中のため、今後の進展や仕様変更の可能性があります。
+    </p>
+  </div>
+
+  <div style="margin-top:1.5rem;">
+    <a href="stories.html" class="detail-button">← 改善事例一覧に戻る</a>
+  </div>
+
+</section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    © 2025 Tamae Shinohe – IT運用 × Web制作 × 在宅ワーク
+  </div>
+</footer>
+
+<button class="back-to-top">↑</button>
+<script src="script.js"></script>
+</div>
+</body>
+</html>
