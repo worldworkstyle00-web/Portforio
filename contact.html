@@ -4,8 +4,9 @@
   <meta charset="UTF-8" />
   <title>お問い合わせ | ポートフォリオ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="お問い合わせフォーム。SendGrid 経由でメール送信ができます。" />
+  <meta name="description" content="お問い合わせフォーム。EmailJS を使用してメール送信が可能です。" />
   <link rel="stylesheet" href="style.css" />
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
 </head>
 <body>
 <div class="page-wrap">
@@ -45,15 +46,15 @@
     ご質問・ご相談・お仕事のご依頼はこちらからお気軽にご連絡ください。
   </p>
 
-  <form id="contact-form" class="contact-form" action="https://formspree.io/f/xyzqwert" method="POST">
+  <form id="contact-form" class="contact-form">
     <label class="form-label">お名前</label>
-    <input type="text" name="name" class="form-input" required />
+    <input type="text" id="user_name" name="user_name" class="form-input" required />
 
     <label class="form-label">メールアドレス</label>
-    <input type="email" name="email" class="form-input" required />
+    <input type="email" id="user_email" name="user_email" class="form-input" required />
 
     <label class="form-label">お問い合わせ内容</label>
-    <textarea name="message" class="form-textarea" required></textarea>
+    <textarea id="message" name="message" class="form-textarea" required></textarea>
 
     <button type="submit" class="form-submit">送信する</button>
 

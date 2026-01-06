@@ -27,33 +27,55 @@ if (backToTopBtn) {
   });
 }
 
-// --- お問い合わせフォーム送信処理 ---
+// --- お問い合わせフォーム送信処理（EmailJS） ---
+// EmailJS 初期化
+emailjs.init("TMbYbHm3jZpgCLjx6");
+
 const contactForm = document.getElementById("contact-form");
 const formStatus = document.getElementById("form-status");
 
 if (contactForm) {
   contactForm.addEventListener("submit", async (e) => {
-    // e.preventDefault(); // Formspree の自動送信を使用するため、ここでは preventDefault しない
-    
+    e.preventDefault();
+
     const submitBtn = contactForm.querySelector("button[type='submit']");
     if (submitBtn) {
       submitBtn.disabled = true;
       submitBtn.textContent = "送信中です...";
     }
 
-    // フォーム送信後のステータス表示
-    setTimeout(() => {
-      formStatus.textContent = "送信ありがとうございます。確認後、ご返信させていただきます。";
-      formStatus.style.color = "#28a745";
+    if (formStatus) {
+      formStatus.textContent = "送信処理中です...";
+      formStatus.style.color = "#666";
       formStatus.style.display = "block";
-    }, 1000);
-  });
+    }
 
-  // Formspree からのリダイレクト時（オプション）
-  const urlParams = new URLSearchParams(window.location.search);
-  if (urlParams.get("success") === "true") {
-    formStatus.textContent = "送信が完了しました。確認後、ご返信させていただきます。";
-    formStatus.style.color = "#28a745";
-    formStatus.style.display = "block";
-  }
+    try {
+      // EmailJS を使用してメール送信
+      const response = await emailjs.send(
+        "service_nl4z1ym",      // Service ID
+        "template_qts6n8j",     // Template ID
+        {
+          user_name: document.getElementById("user_name").value,
+          user_email: document.getElementById("user_email").value,
+          message: document.getElementById("message").value,
+        }
+      );
+
+      if (response.status === 200) {
+        formStatus.textContent = "送信が完了しました。ご連絡ありがとうございます。確認後、ご返信させていただきます。";
+        formStatus.style.color = "#28a745";
+        contactForm.reset();
+      }
+    } catch (error) {
+      console.error("メール送信エラー:", error);
+      formStatus.textContent = "送信に失敗しました。しばらくしてから再度お試しください。";
+      formStatus.style.color = "#d33";
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "送信する";
+      }
+    }
+  });
 }
