@@ -104,6 +104,14 @@
         }
 
         try {
+          console.log("送信開始:", {
+            service_id: "service_nl4z1ym",
+            template_id: "template_qts6n8j",
+            user_name: document.getElementById("user_name").value,
+            user_email: document.getElementById("user_email").value,
+            message: document.getElementById("message").value
+          });
+
           const response = await emailjs.send(
             "service_nl4z1ym",
             "template_qts6n8j",
@@ -113,6 +121,8 @@
               message: document.getElementById("message").value,
             }
           );
+
+          console.log("送信完了:", response);
 
           if (response.status === 200) {
             formStatus.textContent = "送信が完了しました。ご連絡ありがとうございます。確認後、ご返信させていただきます。";
