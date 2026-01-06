@@ -70,17 +70,20 @@
 </footer>
 
 <button class="back-to-top">↑</button>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
 <script src="script.js" defer></script>
 
-<!-- EmailJS フォーム処理 -->
+<!-- EmailJS 処理 -->
+<script async src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // EmailJS 初期化
-    if (typeof emailjs !== 'undefined') {
-      emailjs.init("TMbYbHm3jZpgCLjx6");
+  // EmailJS ライブラリ読み込み完了を待つ
+  function initEmailJS() {
+    if (typeof emailjs === 'undefined') {
+      setTimeout(initEmailJS, 100);
+      return;
     }
-    
+
+    emailjs.init("TMbYbHm3jZpgCLjx6");
+
     const contactForm = document.getElementById("contact-form");
     const formStatus = document.getElementById("form-status");
 
@@ -128,7 +131,14 @@
         }
       });
     }
-  });
+  }
+
+  // ページが完全に読み込まれたら初期化
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initEmailJS);
+  } else {
+    initEmailJS();
+  }
 </script>
 </div>
 </body>
