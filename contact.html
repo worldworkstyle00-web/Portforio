@@ -4,9 +4,8 @@
   <meta charset="UTF-8" />
   <title>お問い合わせ | ポートフォリオ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="お問い合わせフォーム。EmailJS を使用してメール送信が可能です。" />
+  <meta name="description" content="お問い合わせフォーム。バックエンド API でメール送信を処理します。" />
   <link rel="stylesheet" href="style.css" />
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
 </head>
 <body>
 <div class="page-wrap">
@@ -46,20 +45,19 @@
     ご質問・ご相談・お仕事のご依頼はこちらからお気軽にご連絡ください。
   </p>
 
-  <form id="contact-form" class="contact-form">
-    <label class="form-label">お名前</label>
-    <input type="text" id="user_name" name="user_name" class="form-input" required />
+<form id="contact-form" class="contact-form" method="POST">
+  <label class="form-label">お名前</label>
+  <input type="text" id="user_name" name="user_name" class="form-input" required />
 
-    <label class="form-label">メールアドレス</label>
-    <input type="email" id="user_email" name="user_email" class="form-input" required />
+  <label class="form-label">メールアドレス</label>
+  <input type="email" id="user_email" name="user_email" class="form-input" required />
 
-    <label class="form-label">お問い合わせ内容</label>
-    <textarea id="message" name="message" class="form-textarea" required></textarea>
+  <label class="form-label">お問い合わせ内容</label>
+  <textarea id="message" name="message" class="form-textarea" required></textarea>
 
-    <button type="submit" class="form-submit">送信する</button>
-
-    <p id="form-status" class="form-status"></p>
-  </form>
+  <button type="submit" class="form-submit">送信する</button>
+  <p id="form-status" class="form-status" aria-live="polite"></p>
+</form>
 </section>
 </main>
 
@@ -70,86 +68,81 @@
 </footer>
 
 <button class="back-to-top">↑</button>
-<script src="script.js" defer></script>
 
-<!-- EmailJS 処理 -->
-<script async src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
-  // EmailJS ライブラリ読み込み完了を待つ
-  function initEmailJS() {
-    if (typeof emailjs === 'undefined') {
-      setTimeout(initEmailJS, 100);
+  console.log("📝 contact.html EmailJS スクリプト実行");
+
+  // EmailJS 初期化（公開鍵）
+  emailjs.init("あなたのPUBLIC_KEY");
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('form-status');
+
+    if (!form) {
+      console.error('❌ フォーム見つからず');
       return;
     }
 
-    emailjs.init("TMbYbHm3jZpgCLjx6");
+    console.log('✓ フォーム検出');
 
-    const contactForm = document.getElementById("contact-form");
-    const formStatus = document.getElementById("form-status");
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      console.log('📤 フォーム送信');
 
-    if (contactForm) {
-      contactForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
+      const name = document.getElementById('user_name').value.trim();
+      const email = document.getElementById('user_email').value.trim();
+      const message = document.getElementById('message').value.trim();
 
-        const submitBtn = contactForm.querySelector("button[type='submit']");
-        if (submitBtn) {
-          submitBtn.disabled = true;
-          submitBtn.textContent = "送信中です...";
-        }
+      if (!name || !email || !message) {
+        status.textContent = 'すべての項目を入力してください';
+        status.style.color = '#d33';
+        status.style.display = 'block';
+        return;
+      }
 
-        if (formStatus) {
-          formStatus.textContent = "送信処理中です...";
-          formStatus.style.color = "#666";
-          formStatus.style.display = "block";
-        }
+      const btn = form.querySelector("button[type='submit']");
+      btn.disabled = true;
+      btn.textContent = '送信中...';
 
-        try {
-          console.log("送信開始:", {
-            service_id: "service_nl4z1ym",
-            template_id: "template_qts6n8j",
-            user_name: document.getElementById("user_name").value,
-            user_email: document.getElementById("user_email").value,
-            message: document.getElementById("message").value
-          });
+      status.textContent = '送信処理中です...';
+      status.style.color = '#666';
+      status.style.display = 'block';
 
-          const response = await emailjs.send(
-            "service_nl4z1ym",
-            "template_qts6n8j",
-            {
-              user_name: document.getElementById("user_name").value,
-              user_email: document.getElementById("user_email").value,
-              message: document.getElementById("message").value,
-            }
-          );
+      try {
+        // あなたのEmailJS情報
+        const serviceID = "service_nl4z1ym";
+        const templateID = "template_qts6n8j"; // ←ここは要確認
+        const publicKey = "TMbYbHm3jZpgCLjx6";
 
-          console.log("送信完了:", response);
+        console.log('📧 EmailJS 送信開始');
+        await emailjs.sendForm(serviceID, templateID, form, { publicKey });
+        console.log('✓ EmailJS 送信成功');
 
-          if (response.status === 200) {
-            formStatus.textContent = "送信が完了しました。ご連絡ありがとうございます。確認後、ご返信させていただきます。";
-            formStatus.style.color = "#28a745";
-            contactForm.reset();
-          }
-        } catch (error) {
-          console.error("メール送信エラー:", error);
-          formStatus.textContent = "送信に失敗しました。しばらくしてから再度お試しください。";
-          formStatus.style.color = "#d33";
-        } finally {
-          if (submitBtn) {
-            submitBtn.disabled = false;
-            submitBtn.textContent = "送信する";
-          }
-        }
-      });
-    }
-  }
+        status.textContent = '送信が完了しました。ご連絡ありがとうございます。';
+        status.style.color = '#28a745';
+        status.style.display = 'block';
+        form.reset();
 
-  // ページが完全に読み込まれたら初期化
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initEmailJS);
-  } else {
-    initEmailJS();
-  }
+      } catch (error) {
+        console.error('❌ 送信失敗:', error);
+        status.textContent = 'メール送信に失敗しました。しばらくしてからお試しください。';
+        status.style.color = '#d33';
+        status.style.display = 'block';
+
+      } finally {
+        btn.disabled = false;
+        btn.textContent = '送信する';
+      }
+    });
+  });
 </script>
-</div>
+
+
+<script src="script.js" defer></script>
+
 </body>
 </html>
