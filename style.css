@@ -760,4 +760,8 @@ footer {
   transform: translateX(2px);
 }
 
+.note { font-size: 0.9em; opacity: 0.85; }
+.lead { font-size: 1.1em; opacity: 0.95; }
 
+.cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px; }
+.cta-button { display: inline-block; padding: 10px 14px; border-radius: 10px; text-decoration: none; }
